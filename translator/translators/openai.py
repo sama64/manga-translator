@@ -42,8 +42,9 @@ class OpenAiTranslator(Translator):
         result = self.openai.ChatCompletion.create(
             model=self.model,
             messages=[
-                {"role": "user", "content": "EN to JA\nHello"},
-                {"role": "assistant", "content": "こんにちは"},
+                {"role": "system", "content": "You are a manga translator. Answer ONLY with the requested translation."},
+                {"role": "user", "content": "EN to JA\nこんにちは"},
+                {"role": "assistant", "content": "Hello"},
                 {"role": "user", "content": message},
             ],
         )
