@@ -33,3 +33,6 @@ exa/*
 local/*
 trans-test/*
 models/*
+*.env
+notes.txt
+
