@@ -46,6 +46,7 @@ class OpenAiTranslator(Translator):
                 {"role": "user", "content": message},
             ],
         )
+        print(f"Prompt being send to gpt: {message}")
         return TranslatorResult(
             result["choices"][0].message["content"].strip(), self.target_lang
         )
