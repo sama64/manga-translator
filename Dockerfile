@@ -8,14 +8,15 @@ FROM node:18.12.1
 # COPY tsconfig.json .
 # COPY .eslintrc.json .
 
-# RUN npm install
+RUN npm install
 
-# RUN npm run build
+RUN npm run build
 
 
 # Use the NVIDIA CUDA base image
 FROM nvidia/cuda:11.7.1-runtime-ubuntu20.04
 
+COPY --from=0 /app/ui/build /app/ui/build
 
 # COPY --from=0 build build
 # Set the working directory to /app
